@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.example.p2k24'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.p2k24"
         minSdk 33
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 

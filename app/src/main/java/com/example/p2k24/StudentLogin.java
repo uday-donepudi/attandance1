@@ -1,5 +1,6 @@
 package com.example.p2k24;
 
+import android.content.Intent;
 import android.widget.Toast;
 
 import android.os.Bundle;
@@ -32,6 +33,8 @@ public class StudentLogin extends Fragment {
                 String password = passwordEditText.getText().toString();
                 // Perform login action
                 loginUser(email, password);
+                Intent intent = new Intent(getActivity(),navigationactivity.class);
+                startActivity(intent);
             }
         });
 

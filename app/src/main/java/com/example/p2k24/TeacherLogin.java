@@ -1,6 +1,7 @@
 package com.example.p2k24;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.widget.Toast;
 
 import android.os.Bundle;
@@ -34,6 +35,8 @@ public class TeacherLogin extends Fragment {
                 String password = passwordEditText.getText().toString();
                 // Perform signup action
                 signupUser(email, password);
+                Intent intent = new Intent(getActivity(),navigationactivity.class);
+                startActivity(intent);
             }
         });
 

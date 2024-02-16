@@ -7,44 +7,38 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 
 
 public class ProfileFragment extends Fragment {
 
+    private TextView schoolNameTextView;
+    private ImageView teacherImageView;
+    private EditText teacherNameEditText, teacherSubjectEditText, teacherMailEditText, teacherMobileEditText, teacherYearEditText, teacherProjectsEditText;
+
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        // Initialize views
-        ImageView teacherImageView = view.findViewById(R.id.teacherImageView);
-        EditText teacherNameEditText = view.findViewById(R.id.teacherNameEditText);
-        EditText teacherSubjectEditText = view.findViewById(R.id.teacherSubjectEditText);
-        EditText teacherEmailEditText = view.findViewById(R.id.teacherEmailEditText);
-        EditText teacherPhoneEditText = view.findViewById(R.id.teacherPhoneEditText);
+        teacherImageView = view.findViewById(R.id.teacherImageView);
+        teacherNameEditText = view.findViewById(R.id.teacherNameEditText);
+        teacherSubjectEditText = view.findViewById(R.id.teacherSubjectEditText);
+        teacherMailEditText = view.findViewById(R.id.teacherMailEditText);
+        teacherMobileEditText = view.findViewById(R.id.teacherMobileEditText);
+        teacherYearEditText = view.findViewById(R.id.teacherYearEditText);
+        teacherProjectsEditText = view.findViewById(R.id.teacherProjectsEditText);
 
-        Button saveButton = view.findViewById(R.id.saveButton);
+        // You can load an image into the ImageView using a library like Picasso or Glide
+        // Example: Picasso.get().load(R.drawable.your_image).into(teacherImageView);
 
-        // You may need to change 'textView3', 'textView' IDs to the appropriate ones if they exist
+        // Accessing and setting values for demonstration purposes
 
-        // Set onClickListener for saveButton
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Add your save functionality here
-            }
-        });
-
-        // Set onClickListener for editButton
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Add your edit functionality here
-            }
-        });
 
         return view;
     }

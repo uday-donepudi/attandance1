@@ -31,8 +31,6 @@
             android:layout_height="match_parent"
             android:layout_below="@id/searchEditText"
             android:layout_marginTop="16dp"
-            android:autofillHints="@string/material_motion_easing_emphasized"
-            android:cacheColorHint="#1B1212"
             android:divider="@android:color/darker_gray"
             android:dividerHeight="1dp" />
     </RelativeLayout>

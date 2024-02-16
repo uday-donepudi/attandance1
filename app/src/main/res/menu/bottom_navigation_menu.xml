@@ -13,5 +13,5 @@
         android:title="Profile" />
     <item
         android:id="@+id/navigation_menu"
-        android:title="Exit" />
+        android:title="Logout"/>
 </menu>

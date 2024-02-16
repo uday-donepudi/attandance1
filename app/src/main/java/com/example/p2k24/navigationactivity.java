@@ -48,6 +48,9 @@ public class navigationactivity extends AppCompatActivity {
             loadFragment(selectedFragment);
             return true;
         });
+
+        // Set the home fragment as default when the activity is created
+        loadFragment(homeFragment);
     }
 
     private void loadFragment(Fragment fragment) {

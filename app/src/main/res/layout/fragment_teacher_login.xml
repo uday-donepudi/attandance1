@@ -1,44 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#68000000"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:gravity="center">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="369dp"
-        android:layout_height="85dp"
+        android:layout_width="0dp"
+        android:layout_height="78dp"
         android:text="-- TEACHER LOGIN --"
         android:textAlignment="center"
-        android:textSize="23dp" />
+        android:textSize="23dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.173" />
+
     <EditText
         android:id="@+id/signupEmailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="71dp"
+        android:layout_width="411dp"
+        android:layout_height="72dp"
         android:hint="Email"
         android:minHeight="56dp"
         android:padding="16dp"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.372" />
 
     <EditText
         android:id="@+id/signupPasswordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="71dp"
+        android:layout_width="408dp"
+        android:layout_height="73dp"
         android:hint="Password"
         android:minHeight="56dp"
         android:padding="16dp"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.659" />
 
     <Button
         android:id="@+id/signupButton"
-        android:layout_width="103dp"
-        android:layout_height="60dp"
-        android:text="Login" />
+        android:layout_width="93dp"
+        android:layout_height="58dp"
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.904" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

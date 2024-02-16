@@ -9,7 +9,6 @@
 
     <!-- Second TextView -->
 
-    <!-- Buttons -->
 
     <TextView
         android:id="@+id/textView1"

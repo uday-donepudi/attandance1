@@ -17,10 +17,13 @@
         <EditText
             android:id="@+id/searchEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:hint="Search"
-            android:padding="8dp" />
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:textColor="#020101"
+            android:textColorHint="#150C0C" />
 
         <!-- ListView -->
         <ListView
@@ -28,9 +31,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/searchEditText"
+            android:layout_marginTop="16dp"
+            android:autofillHints="@string/material_motion_easing_emphasized"
+            android:cacheColorHint="#1B1212"
             android:divider="@android:color/darker_gray"
-            android:dividerHeight="1dp"
-            android:layout_marginTop="16dp"/>
+            android:dividerHeight="1dp" />
     </RelativeLayout>
 
 </FrameLayout>

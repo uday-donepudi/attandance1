@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="363dp"
+        android:layout_width="362dp"
         android:layout_height="53dp"
         android:text="-- STUDENT LOGIN --"
         android:textAlignment="center"

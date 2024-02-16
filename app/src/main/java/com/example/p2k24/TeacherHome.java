@@ -23,7 +23,6 @@ public class TeacherHome extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_teacher_home, container, false);
 
         // Initialize views
-        imageView = rootView.findViewById(R.id.imageView);
         textView = rootView.findViewById(R.id.textView);
         button1 = rootView.findViewById(R.id.button1);
         button2 = rootView.findViewById(R.id.button2);

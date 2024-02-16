@@ -12,15 +12,15 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="wrap_content"
-        android:layout_height="281dp"
+        android:layout_height="248dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="23dp"
-        android:layout_marginTop="253dp"
+        android:layout_marginTop="281dp"
         android:layout_marginEnd="23dp"
-        android:layout_marginBottom="197dp"
+        android:layout_marginBottom="192dp"
         android:contentDescription="view_pager_description">
 
         <com.google.android.material.tabs.TabLayout

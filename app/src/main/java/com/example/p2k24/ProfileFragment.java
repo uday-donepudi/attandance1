@@ -29,7 +29,7 @@ public class ProfileFragment extends Fragment {
         teacherImageView = view.findViewById(R.id.teacherImageView);
         teacherNameEditText = view.findViewById(R.id.teacherNameEditText);
         teacherSubjectEditText = view.findViewById(R.id.teacherSubjectEditText);
-        teacherMailEditText = view.findViewById(R.id.teacherMailEditText);
+        teacherMailEditText = view.findViewById(R.id.teachermailEditText);
         teacherMobileEditText = view.findViewById(R.id.teacherMobileEditText);
         teacherYearEditText = view.findViewById(R.id.teacherYearEditText);
         teacherProjectsEditText = view.findViewById(R.id.teacherProjectsEditText);

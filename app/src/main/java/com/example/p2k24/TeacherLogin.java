@@ -36,6 +36,7 @@ public class TeacherLogin extends Fragment {
                 // Perform signup action
                 signupUser(email, password);
                 Intent intent = new Intent(getActivity(),navigationactivity.class);
+                intent.putExtra("TeacherLogin","TeacherHome");
                 startActivity(intent);
             }
         });

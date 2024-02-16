@@ -28,7 +28,7 @@ public class StudentHome extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_teacher_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_student_home, container, false);
 
         // Initialize views
         imageView = rootView.findViewById(R.id.imageView);
@@ -39,8 +39,6 @@ public class StudentHome extends Fragment {
         button3 = rootView.findViewById(R.id.button4);
         button3 = rootView.findViewById(R.id.button5);
 
-        // Example of setting text for TextView
-        textView.setText("Your Updated Text");
 
         // Example of setting click listeners for buttons
         button1.setOnClickListener(v -> {

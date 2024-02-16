@@ -1,5 +1,6 @@
 package com.example.p2k24;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,14 +35,18 @@ public class TeacherHome extends Fragment {
         // Example of setting click listeners for buttons
         button1.setOnClickListener(v -> {
             // Handle button1 click
+            Intent intent = new Intent(getActivity(), Clock1.class);
+            startActivity(intent);
         });
 
         button2.setOnClickListener(v -> {
             // Handle button2 click
+            Intent intent = new Intent(getActivity(), Clock1.class);
         });
 
         button3.setOnClickListener(v -> {
             // Handle button3 click
+            Intent intent = new Intent(getActivity(), Clock1.class);
         });
 
         return rootView;

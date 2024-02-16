@@ -1,16 +1,15 @@
 package com.example.p2k24;
 
 import android.content.Intent;
-import android.widget.Toast;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import androidx.fragment.app.Fragment;
+import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
 
 public class StudentLogin extends Fragment {
 
@@ -33,7 +32,8 @@ public class StudentLogin extends Fragment {
                 String password = passwordEditText.getText().toString();
                 // Perform login action
                 loginUser(email, password);
-                Intent intent = new Intent(getActivity(),navigationactivity.class);
+                // Create Intent to navigate to StudentHome
+                Intent intent = new Intent(getActivity(), MainActivity2.class);
                 startActivity(intent);
             }
         });

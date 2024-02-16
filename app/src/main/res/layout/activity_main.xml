@@ -4,21 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bag"
     tools:context=".MainActivity">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
-        android:contentDescription="tab_layout_description" /> <!-- Content description for TabLayout -->
+    <!-- Content description for TabLayout -->
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tabLayout"
-        android:contentDescription="view_pager_description" /> <!-- Content description for ViewPager -->
+        android:layout_width="372dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="214dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="197dp"
+        android:contentDescription="view_pager_description">>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:contentDescription="tab_layout_description" />
+    </androidx.viewpager.widget.ViewPager>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="330dp"
+        android:layout_height="144dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="580dp"
+        android:contentDescription="srkr_image_description"
+        android:src="@drawable/srkr" />
+    <!-- Content description for ViewPager -->
 
 </RelativeLayout>

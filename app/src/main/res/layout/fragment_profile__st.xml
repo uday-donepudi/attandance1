@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/bag"
+    tools:context=".ProfileFragment_St">
+
+
+    <ImageView
+        android:id="@+id/teacherImageView"
+        android:layout_width="match_parent"
+        android:layout_height="199dp"
+
+
+        />
+
+    <EditText
+        android:id="@+id/teacherNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name:"
+        android:textStyle="bold"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/teacherSubjectEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:hint="Register:"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/teacherYearEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Branch:"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/teacherBranchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Year:"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

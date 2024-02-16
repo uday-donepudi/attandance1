@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ProfileFragment">
+
+    <ImageView
+        android:id="@+id/teacherImageView"
+        android:layout_width="116dp"
+        android:layout_height="118dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background"/>
+
+    <EditText
+        android:id="@+id/teacherNameEditText"
+        android:layout_width="367dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="160dp"
+        android:ellipsize="middle"
+        android:hint="Name:"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/teacherImageView" />
+
+    <EditText
+        android:id="@+id/teacherSubjectEditText"
+        android:layout_width="362dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Subject: "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/teacherNameEditText" />
+
+    <EditText
+        android:id="@+id/teacherEmailEditText"
+        android:layout_width="360dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Email: "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/teacherSubjectEditText" />
+
+    <EditText
+        android:id="@+id/teacherPhoneEditText"
+        android:layout_width="333dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Phone: "
+
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/teacherEmailEditText" />
+
+
+    <EditText
+        android:id="@+id/textView3"
+        android:layout_width="373dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="16dp"
+
+        android:hint="Add anything:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="408dp" />
+
+    <EditText
+        android:id="@+id/textView"
+        android:layout_width="210dp"
+        android:layout_height="129dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Bio:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="74dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:text="Save"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

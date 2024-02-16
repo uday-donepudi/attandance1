@@ -1,0 +1,30 @@
+<!-- activity_notifications_fragment.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Message List -->
+    <ListView
+        android:id="@+id/messageListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
+
+    <!-- Message Input -->
+    <EditText
+        android:id="@+id/messageEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp" /><!-- Add padding to increase touch target size -->
+
+    <!-- Send Button -->
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send" />
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+package com.example.p2k24;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+
+import androidx.fragment.app.Fragment;
+
+
+
+public class ProfileFragment extends Fragment {
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        // Initialize views
+        ImageView teacherImageView = view.findViewById(R.id.teacherImageView);
+        EditText teacherNameEditText = view.findViewById(R.id.teacherNameEditText);
+        EditText teacherSubjectEditText = view.findViewById(R.id.teacherSubjectEditText);
+        EditText teacherEmailEditText = view.findViewById(R.id.teacherEmailEditText);
+        EditText teacherPhoneEditText = view.findViewById(R.id.teacherPhoneEditText);
+
+        Button saveButton = view.findViewById(R.id.saveButton);
+
+        // You may need to change 'textView3', 'textView' IDs to the appropriate ones if they exist
+
+        // Set onClickListener for saveButton
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Add your save functionality here
+            }
+        });
+
+        // Set onClickListener for editButton
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Add your edit functionality here
+            }
+        });
+
+        return view;
+    }
+}

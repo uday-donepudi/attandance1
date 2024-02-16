@@ -1,0 +1,17 @@
+<!-- activity_notifications_fragment.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bag"
+    android:orientation="vertical">
+
+    <!-- Message List -->
+    <ListView
+        android:id="@+id/messageListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
+
+</LinearLayout>

@@ -46,7 +46,7 @@ public class Clock2 extends AppCompatActivity {
                     countDownTimer = null;
                     clockButton.setText("Start");
                 } else {
-                    authenticateBiometric(); // Call biometric authentication method
+                     // Call biometric authentication method
                     startTimer();
                 }
             }

@@ -3,77 +3,40 @@ package com.example.p2k24;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.biometrics.BiometricPrompt;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
-import java.util.concurrent.Executor;
 
 public class Scheck extends AppCompatActivity {
     private final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.#####");
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
-    private Executor executor;
-    private BiometricPrompt biometricPrompt;
-    private BiometricPrompt.PromptInfo promptInfo;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scheck);
-        if (isPresent(new double[]{16.54483}, new double[]{81.49595})) {
-            executor = ContextCompat.getMainExecutor(this);
-
-            // Initialize BiometricPrompt
-            biometricPrompt = new BiometricPrompt(this, executor, new BiometricPrompt.AuthenticationCallback() {
-                @Override
-                public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
-                    super.onAuthenticationError(errorCode, errString);
-                    // If any error occurs during authentication
-                    // Handle errors if needed
-                }
-
-                @Override
-                public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
-                    super.onAuthenticationSucceeded(result);
-                    // Authentication successful
-                    // Proceed with your logic after successful authentication
-                }
-
-                @Override
-                public void onAuthenticationFailed() {
-                    super.onAuthenticationFailed();
-                    // Authentication failed
-                    // Handle failures if needed
-                }
-            });
-
-            // Setup BiometricPrompt.PromptInfo
-            promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                    .setTitle("Biometric Authentication")
-                    .setSubtitle("Login using fingerprint or face")
-                    .setNegativeButtonText("Cancel")
-                    .build();
-
-            // Show the authentication dialog immediately
-            biometricPrompt.authenticate(promptInfo);
-
+        double[] l1=getCurrentLocation();
+        double[] l2=new double[]{16.54483,81.49595};
+        Boolean r=isPresent(l1,l2);
+        if(r)
+        {
+            Intent i=new Intent(Scheck.this,biometric1.class);
+            startActivity(i);
         }
     }
-
     private void requestLocationPermissions() {
         // Check if the app has location permissions
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // Request location permissions
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
         } else {
             // Location permissions already granted, get current location
             getCurrentLocation();
@@ -81,16 +44,16 @@ public class Scheck extends AppCompatActivity {
     }
 
     //###############################################################################################################################//
-//Location Retrieval Code//
+//Location Retrival Code//
     private double[] getCurrentLocation() {
         double[] coordinates = new double[2]; // Array to store latitude and longitude
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         if (locationManager != null) {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // Request location permissions if not granted
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
             } else {
                 // Location permissions granted
                 Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);

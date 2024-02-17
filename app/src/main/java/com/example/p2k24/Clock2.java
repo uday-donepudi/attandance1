@@ -1,129 +1,69 @@
 package com.example.p2k24;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.hardware.biometrics.BiometricManager;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import java.text.DecimalFormat;
-
 
 public class Clock2 extends AppCompatActivity {
 
-    private Button clockButton;
-    private Button homeButton;
+    private Button startStopButton;
     private CountDownTimer countDownTimer;
     private long timeLeftInMillis = 5 * 60 * 1000; // 5 minutes
-    private static LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clock2);
 
-        clockButton = findViewById(R.id.clockButton);
-        homeButton = findViewById(R.id.homeButton);
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        startStopButton = findViewById(R.id.startStopButton);
+        EditText editText1 = findViewById(R.id.editText1);
+        EditText editText2 = findViewById(R.id.editText2);
+        Button sendButton = findViewById(R.id.sendButton);
 
-        updateTimerText();
-
-        clockButton.setOnClickListener(new View.OnClickListener() {
+        startStopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
                     countDownTimer = null;
-                    clockButton.setText("Start");
+                    startStopButton.setText("Start");
                 } else {
-                     // Call biometric authentication method
-                    startTimer();
+                    startStopTimer();
                 }
             }
         });
 
-        homeButton.setOnClickListener(new View.OnClickListener() {
+        sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                String text1 = editText1.getText().toString();
+                String text2 = editText2.getText().toString();
+                // Do something with the input texts
+                Toast.makeText(Clock2.this, "Text 1: " + text1 + ", Text 2: " + text2, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void startTimer() {
-        clockButton.setText("% Completed");
+    private void startStopTimer() {
+        startStopButton.setText("Stop");
         countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timeLeftInMillis = millisUntilFinished;
-                updateTimerText();
+                // Update timer if needed
             }
 
             @Override
             public void onFinish() {
                 Toast.makeText(Clock2.this, "Timer Finished!", Toast.LENGTH_SHORT).show();
+                startStopButton.setText("Start");
+                countDownTimer = null;
             }
         }.start();
-    }
-
-    private void updateTimerText() {
-        long totalTimeInMillis = 5 * 60 * 1000; // 5 minutes in milliseconds
-        long elapsedTimeInMillis = totalTimeInMillis - timeLeftInMillis;
-        int percentageCompleted = (int) ((elapsedTimeInMillis / (double) totalTimeInMillis) * 100);
-        clockButton.setText(percentageCompleted + "% Completed");
-    }
-
-
-
-    double[] getTeacherLocation() {
-        double[] coordinates = new double[2]; // Array to store latitude and longitude
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Request location permissions if not granted
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-        } else {
-            // Get last known location from GPS provider
-            Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if (lastKnownLocation == null) {
-                // If GPS provider is unavailable, try network provider
-                lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            }
-
-            if (lastKnownLocation != null) {
-                // Extract latitude and longitude from the location object
-                coordinates[0] = lastKnownLocation.getLatitude();
-                coordinates[1] = lastKnownLocation.getLongitude();
-            } else {
-                // Handle the case when last known location is not available
-                coordinates[0] = 0.0; // Default latitude
-                coordinates[1] = 0.0; // Default longitude
-            }
-        }
-
-        // Format latitude and longitude values to have up to 5 digits after the decimal point
-        DecimalFormat df = new DecimalFormat("#.#####");
-        coordinates[0] = Double.parseDouble(df.format(coordinates[0]));
-        coordinates[1] = Double.parseDouble(df.format(coordinates[1]));
-
-        return coordinates;
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
-        }
     }
 }

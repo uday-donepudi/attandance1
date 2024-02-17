@@ -42,15 +42,20 @@ public class StudentHome extends Fragment {
 
         // Example of setting click listeners for buttons
         button1.setOnClickListener(v -> {
-            // Handle button1 click
+            Intent i=new Intent(getActivity(), Scheck.class);
+            startActivity(i);
         });
 
         button2.setOnClickListener(v -> {
             // Handle button2 click
+            Intent i=new Intent(getActivity(), Scheck.class);
+            startActivity(i);
         });
 
         button3.setOnClickListener(v -> {
             // Handle button3 click
+            Intent i=new Intent(getActivity(), Scheck.class);
+            startActivity(i);
         });
 
         return rootView;

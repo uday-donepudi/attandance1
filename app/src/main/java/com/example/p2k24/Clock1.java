@@ -3,6 +3,15 @@ package com.example.p2k24;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.Manifest;
 import android.content.Context;
@@ -27,7 +36,7 @@ public class Clock1 extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.activity_clock1);
 
             // Request location permissions
             requestLocationPermissions();
@@ -71,6 +80,37 @@ public class Clock1 extends AppCompatActivity {
                         // Display latitude and longitude using Toast
                         String message = "Latitude: " + DECIMAL_FORMAT.format(coordinates[0]) + ", Longitude: " + DECIMAL_FORMAT.format(coordinates[1]);
                         showToast(message);
+
+
+
+                        // Initialize Firebase
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+// Get a reference to the database node where you want to store the data
+                        DatabaseReference myRef = database.getReference("app");
+
+// Create a data object (e.g., a HashMap) with the data you want to add
+                        Map<String, Object> userData = new HashMap<>();
+                        userData.put("latitude", coordinates[0]);
+                        userData.put("longitude", coordinates[1]);
+
+// Add the data to the database
+                        myRef.setValue(userData)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        // Data successfully added
+                                        Toast.makeText(Clock1.this, "success", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        // Failed to add data
+                                        Toast.makeText(Clock1.this, "fail", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
                     } else {
                         showToast("Unable to retrieve location.");
                     }
@@ -96,33 +136,6 @@ public class Clock1 extends AppCompatActivity {
                 }
             }
         }
-
-    private double getDistance(double[] location1, double[] location2) {
-        double latitude1 = location1[0];
-        double longitude1 = location1[1];
-        double latitude2 = location2[0];
-        double longitude2 = location2[1];
-
-        double diffLatitude = latitude1 - latitude2;
-        double diffLongitude = longitude1 - longitude2;
-        double squaredDiffLat = Math.pow(diffLatitude, 2);
-        double squaredDiffLon = Math.pow(diffLongitude, 2);
-        double sumOfSquaredDiffs = squaredDiffLat + squaredDiffLon;
-        double distance = Math.sqrt(sumOfSquaredDiffs);
-
-        // Round distance to 7 decimal places using DecimalFormat
-        DecimalFormat df = new DecimalFormat("#.##########");
-        distance = Double.parseDouble(df.format(distance));
-
-        return distance;
-    }
-
-    private static final double THRESHOLD = 0.0000591998;
-    private boolean isPresent(double[] location1, double[] location2) {
-        double distance = getDistance(location1, location2);
-        return distance < THRESHOLD;
-    }
-
 
 
 
